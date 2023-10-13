@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    public GameManager gameManager;
     Rigidbody rb;
     void Start()
     {
@@ -21,6 +22,7 @@ public class Ball : MonoBehaviour
             //Particle
             //Num Change
             //Slider
+            gameManager.isBallEnter(true);
         }  
         else if(other.CompareTag("Hit"))
         {
@@ -29,6 +31,7 @@ public class Ball : MonoBehaviour
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
             gameObject.SetActive(false);
+            gameManager.isBallEnter(false);
         }   
     }
 }
